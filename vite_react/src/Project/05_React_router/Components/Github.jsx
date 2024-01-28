@@ -22,7 +22,7 @@ function Github() {
 
     return ( 
         <div className="text-center m-4 bg-gray-600 text-white p-4 text-3xl flex flex-col items-center gap-2">
-            <div>Github followers:{data.followers}</div>
+            <div>Github followers:{data.followers}  &  Github following:{data.following} </div>
             <img src={data.avatar_url} alt="Git pictures" width={300}/>
         </div>
      );
