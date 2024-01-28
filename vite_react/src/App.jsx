@@ -91,20 +91,21 @@
 
 
 
-// Currency_changer:---
+// // Currency_changer:---
 
-    import Currency from './Project/04_Currency_changer_custom_hook/Currency';
+//     import Currency from './Project/04_Currency_changer_custom_hook/Currency';
 
-        function App() {
-            return (
-                <Currency/>
-            );
-        }
+//         function App() {
+//             return (
+//                 <Currency/>
+//             );
+//         }
 
 
 
 // React_router:------
     //Create React App doesn't include page routing.React Router is the most popular solution.
+    //React Router is a popular library for handling navigation in React applications. It enables developers to create single-page applications (SPAs) where the content is dynamically loaded and updated without requiring a full page refresh.
     //In case of React_router we do not need app.jsx we can simply manipulate in main.jsx. So check out in main.jsx.
     //Learn this in 'React Route' website.
 
