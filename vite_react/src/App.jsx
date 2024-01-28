@@ -79,25 +79,27 @@
 
 
 
-//Password_generator:---
-    import Password from './Project/03_Password_generator_useCallback_useEffect_useRef/Password';
+// //Password_generator:---
+
+//     import Password from './Project/03_Password_generator_useCallback_useEffect_useRef/Password';
+
+//         function App() {
+//           return (
+//               <Password />
+//           );
+//         }
+
+
+
+// Currency_changer:---
+
+    import Currency from './Project/04_Currency_changer_custom_hook/Currency';
 
         function App() {
-          return (
-              <Password />
-          );
+            return (
+                <Currency/>
+            );
         }
-
-
-
-// import Currency from './Project/04_Currency_changer_custom_hook/Currency';
-
-    // Currency_changer:---
-        // function App() {
-        // return (
-        //     <Currency/>
-        // );
-        // }
 
 
 

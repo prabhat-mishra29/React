@@ -11,15 +11,16 @@ import { useId } from "react";
     //["Do not call useId to generate keys in a list. Keys should be generated from your data.""]
 
 
-function InputBox( { label , amount , onAmountChange , onCurrencyChange , currenyOptions=[] , selectCurrency="usd" , currencyDisable=false ,  amountDisable=false,className = "",} ) {
+function InputBox( { label , amount , onAmountChange , onCurrencyChange , currenyOptions=[] , selectCurrency="" , currencyDisable=false ,  amountDisable=false,className = "",} ) {
    
     //optional
     const amountId=useId();
+    //We use this hook to bind label with input tag.
 
     return (
         //These are nothing but props.
             //'Label' indicates whether it is a 'from' input tag or 'to' input tag. 
-            //'Amount' indicates amount you enter
+            //'Amount' indicates amount you enter.
 
             //joo v input-box component ko call karr raha hai,wahan pai state v toh change hoga naa.
                 //onAmountChange():--- amount agar hmne badla toh kya hoga..
@@ -71,6 +72,5 @@ function InputBox( { label , amount , onAmountChange , onCurrencyChange , curren
         </div>
     );
 }
-
 
 export default InputBox;

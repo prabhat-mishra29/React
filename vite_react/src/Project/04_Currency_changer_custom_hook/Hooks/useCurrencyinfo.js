@@ -10,7 +10,9 @@
     
     //Our hook deoesnot need optional argument , it needs only a veriable which will take currency_info 
     function useCurrencyinfo(currency){
-        //everytime fetch api if any change occurs.
+        //everytime fetch an api if any change occurs.
+
+        //Essa konsa 'hook' hai jabb hmm invoke karre mount/unmount tabb activate hoo. =>"useEffect()"
 
         // Promise.then() takes two arguments, a callback for success and another for failure.
             // myPromise.then(
@@ -27,13 +29,14 @@
 
         useEffect(()=>{
             fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
-            .then((Response)=>{
-                return Response.json(); }).then((Response)=>{//hold the data
-                                        setData(Response[currency]);  
-                                    })
+                .then( (Response)=> //1st then convert string into Json and no need to return anything just convert. 
+                        ( Response.json() ) 
+                            ).then( (Response)=>//2nd then hold the data and no need to return anything just hold.
+                                    ( setData(Response[currency]) )  
+                                        )
         },[currency]);
         //suppose the currency is usd , it means key : usd. To acces it's object we use square bracket.
-        //USD se change hone wale sare currencies ka object doo..
+        //USD se change hone wale sare currencies ka object return[data] doo..
 
         return data;
     }

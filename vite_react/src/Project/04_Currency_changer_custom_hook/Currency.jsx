@@ -23,17 +23,18 @@ function Currency() {
 
     //for swapping 'from' to 'to'
         const swap=()=>{
-            setFrom(to);
-            setTo(from);
+            setFrom(to); //Selection type 
+            setTo(from); //Selection type
             setConvertedAmount(amount);
                 //let amount is 1 usd, and it is converted to 82 inr.
                 //while swap thne and it returns back to 1
             setAmount(convertedAmount);
         }
 
-    //final result show
+    //final result show when you click convert button
         const convert=()=>{
             setConvertedAmount(amount*Currencyinfo[to])
+            //Suppose to=inr then give us the value of 'inr' from Currencyinfo which stores key and value pair.
         }
 
     return ( 
@@ -85,7 +86,7 @@ function Currency() {
                             </div>
 
                             <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                                Convert {from} to {to}
+                                Convert {from.toUpperCase()} to {to.toUpperCase()}
                             </button>
                     </form>
                 </div>
