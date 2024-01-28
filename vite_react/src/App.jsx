@@ -79,14 +79,14 @@
 
 
 
-// import Password from './Project/03_Password_generator_useCallback_useEffect_useRef/Password';
+//Password_generator:---
+    import Password from './Project/03_Password_generator_useCallback_useEffect_useRef/Password';
 
-    // Password_generator:---
-        // function App() {
-        //   return (
-        //       <Password />
-        //   );
-        // }
+        function App() {
+          return (
+              <Password />
+          );
+        }
 
 
 
@@ -284,23 +284,23 @@
 
 
 
-// Redux Toolkit :--- 
-    import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
-    import Todos from "./Project/07_Redux_toolkit/Components/Todos";
-    import { Provider } from "react-redux";
-    import { store } from "./Project/07_Redux_toolkit/store";
+// // Redux Toolkit :--- 
+//     import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
+//     import Todos from "./Project/07_Redux_toolkit/Components/Todos";
+//     import { Provider } from "react-redux";
+//     import { store } from "./Project/07_Redux_toolkit/store";
 
-    //We use one extra thing 'store'[global variable]
-    //here 'store' is used just like we use 'value' in context Api.
+//     //We use one extra thing 'store'[global variable]
+//     //here 'store' is used just like we use 'value' in context Api.
 
-        function App(){
-            return(
-                <Provider store={store}>
-                    <h1>Learn redux Toolkit</h1> 
-                    <AddTodo/>
-                    <Todos/>
-                </Provider>
-            );
-        }
+//         function App(){
+//             return(
+//                 <Provider store={store}>
+//                     <h1>Learn redux Toolkit</h1> 
+//                     <AddTodo/>
+//                     <Todos/>
+//                 </Provider>
+//             );
+//         }
 
 export default App

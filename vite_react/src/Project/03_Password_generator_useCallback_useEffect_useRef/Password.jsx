@@ -13,22 +13,27 @@ function Password() {
         {/* functionality for inputfilled which will generate password */}
         const[password,setPassword]=useState("");
 
+
     // generate a function of password generator:--
-        //when you are clicking length checkbox,it will call password generator. 
-        //when you are clicking character checkbox,it will call password generator. 
+        //When we disrupt 'length' field, it will call password generator.
+        //when you are clicking 'number' checkbox,it will call password generator. 
+        //when you are clicking 'character' checkbox,it will call password generator. 
         //Did we call password generation again and again?
-        //We have to make a "optimize function" of password_generator() 
+        //We have to make a "optimize function" of password_generator(). 
         //"1. useCallback":--
             //The React useCallback Hook returns a memoized callback function.
             //Think of memoization as caching a value so that it does not need to be recalculated.
             //useCallback(fn, dependencies)
                 //Function of password generator
                 //dependencies:--- parameter when it changes , it will affect the password generator(). It is an array.
-        
+     
+                
     { /*const Password_generator=()=>{
-
+            We can not make 'Password_generator' like this way.
+            It will give us an error of "too many re-renders".
         }
     */}
+
 
         const password_generator=useCallback(()=>{
             let pass=""; //At 1st it is empty
@@ -37,6 +42,8 @@ function Password() {
             if(numberAllowed) str+="0123456789"
             if(characterAllowed) str+="!@#$%^&*()-_=+`?<>.,':;/{}[]|"
 
+            //'length' represents 'useState' length.
+            //if 'length' is 12.
             for(let i=1;i<=length;i++){ //loop for find 12 random char in string
                 let index=Math.floor(Math.random() * str.length); // 0 se str.length-1 ke bich main koi ek index do
                 pass+=str.charAt(index);
@@ -44,10 +51,14 @@ function Password() {
 
             setPassword(pass); //reflect in input field
         },[length,numberAllowed,characterAllowed,setPassword]);
+        // Why 'setPassword' is used?
+        // It is optional.
+        // For memoization concept , we provide a function which sets the password in input field. 
 
 
     //when you are calling a method directly , it will give you an error.
         //password_generator()
+
 
     //so we use " 2. useEffect" hook:--
         //The useEffect Hook allows you to perform side effects in your components.
@@ -58,13 +69,19 @@ function Password() {
             //means:- length ko cheda to passwor_generator ko call karo , numberAllowed ko cheda to passwor_generator ko call karo , charAllowed ko cheda to passwor_generator ko call karo , ya phir khali passwor_generator ko call karo!
 
     /*
-        ->Basically "useCallback" is used for memoization and to make a optimized function.
-        ->"useEffect" is used if any any change happen call function.
-        ->[But you can do this only using "useEffect"]
+        //Note:--
+            ->Basically "useCallback" is used for memoization and to make a optimized function.
+            ->'useCallback' is not responsible for calling a function. It is responsible for memoization concept.
+            -> Agar length main kuch change hua toh cache mai rakho , numbers main kuch change hua hai usko v cache main rakho , character main kuch change hua hai usko v cache main rakho.
+
+            ->"useEffect" is used if any any change happen call function.
+
+            ->[But you can do this only using "useEffect"]
     */
 
     
-    //Jabb copy button click ho clipbord pai passwor-text copy ho but kesse kare?
+    //Jabb copy button click ho clipbord pai passwor-text copy ho0 but kesse kare?
+    //And Hmme kese malumm ke button and input tag apass main link hai ?
         
         //"3. useRef" hook:--
             //kissi v cheeze ka reference lena hai toh useRef ka use karte hain.
@@ -95,11 +112,11 @@ function Password() {
                 <div className='flex text-sm gap-x-5'>
                     <div className='flex items-center gap-x-2'>
                         <input type="range" min={6} max={50} value={length} className='cursor-pointer outline-none' onChange={(e)=>{setLength(e.target.value)}}/>
-                        <label>Length:{length}</label>
+                        <label>Length : [{length}]</label>
                     </div>
 
                     <div className='flex items-center gap-x-2'>
-                        <input type="checkbox" defaultValue={numberAllowed} id='numberInput'onChange={ ()=>{ setNumberAllowed(prev=>!prev) } }/> {/* change previous value */}
+                        <input type="checkbox" defaultValue={numberAllowed} id='numberInput'onChange={ ()=>{ setNumberAllowed((prev)=>(!prev)) } }/> {/* change previous value */}
                         <label htmlFor="numberInput">Numbers</label>
 
                         <input type="checkbox" defaultValue={characterAllowed} id='charInput' onChange={ ()=>{ setCharacterAllowed(prev=>!prev) } } />
