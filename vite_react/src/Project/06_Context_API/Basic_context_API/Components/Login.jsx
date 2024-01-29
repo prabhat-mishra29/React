@@ -25,3 +25,5 @@ import UserContext from '../Context/UserContext';
     }
 
     export default Login;
+
+    // Suppose we fetch an API.. then we can put data coming from API into global variable 'UserContext' using 'setUser' method.

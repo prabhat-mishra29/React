@@ -12,6 +12,7 @@ const UserContextProvider=({children})=>{
 
     return(
         <UserContext.Provider value={{user,setUser}}> {/* We provide object here. */}
+        {/* joo joo cheezein dena hai 'provider' main woh sabb 'value' main dedo. */}
         {/* We know that global variable has some data i.e is stored in user and we want to give to it's children but why we put setUser method in value? */}
         {/* Using setUser method we can add data in user via it's children. */}
             {children}

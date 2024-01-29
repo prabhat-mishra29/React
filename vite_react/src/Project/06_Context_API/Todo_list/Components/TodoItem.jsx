@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTodo } from "../Context";
 
+//Function is for each 'todo'
 function TodoItem({todo}) {
 
     const{updateTodo,deleteTodo,toggleTodo}=useTodo();
@@ -53,7 +54,8 @@ function TodoItem({todo}) {
 
                     if (isTodoEditable) {
                         editTodo();
-                    } else setIsTodoEditable((prev) => !prev);
+                    } 
+                    else setIsTodoEditable((prev) => !prev);
                 }}
                 disabled={todo.completed}
             >

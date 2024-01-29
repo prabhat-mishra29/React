@@ -3,7 +3,7 @@ import { useTodo } from "../Context";
 
 function TodoForm() {
     //State define for individual todo.
-    //Default value of todo[todo description] is empty String
+    //Default value of todo[todo description] is empty String.
     const [todo,setTodo]=useState("");
 
     //Add todo using AddTodo() 
@@ -13,7 +13,8 @@ function TodoForm() {
         e.preventDefault();
         if(!todo) return;
         else{
-            addTodo({todo:todo,completed:false});
+            //'addTodo' takes a 'todo' which itself a object.
+            addTodo( { id:Date.now(),todo:todo,completed:false } );
         }
 
         //sabb karne ke badd field empty karr do.

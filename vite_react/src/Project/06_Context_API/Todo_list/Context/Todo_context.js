@@ -6,6 +6,7 @@ export const Todo_context=createContext({
     //Here todo is a variable
     //Each todo has some id , message and completed or not1
     todos:[
+        //Create a de-fault 'todo'
         {
             id:1,
             todo:"Todo message",
