@@ -195,128 +195,129 @@
         //     }
 
 
-    // Todo list :----
-        import { useEffect, useState } from "react";
-        import { Todo_provider } from "./Project/06_Context_API/Todo_list/Context";
-        import TodoForm from "./Project/06_Context_API/Todo_list/Components/TodoForm";
-        import TodoItem from "./Project/06_Context_API/Todo_list/Components/TodoItem";
-            function App() {
-                //Basic context functionality:-
-                    //Todos are coming from some where and you want to store and update your UI.
-                    //State main sare todo hain.
-                    //By default empty-array.
-                    const [todos,setTodos]=useState([])
+    // // Todo list :----
+    //     import { useEffect, useState } from "react";
+    //     import { Todo_provider } from "./Project/06_Context_API/Todo_list/Context";
+    //     import TodoForm from "./Project/06_Context_API/Todo_list/Components/TodoForm";
+    //     import TodoItem from "./Project/06_Context_API/Todo_list/Components/TodoItem";
+    //         function App() {
+    //             //Basic context functionality:-
+    //                 //Todos are coming from some where and you want to store and update your UI.
+    //                 //State main sare todo hain.
+    //                 //By default empty-array.
+    //                 const [todos,setTodos]=useState([])
 
-                    const addTodo=(todo)=>{
-                        //here 'todo' is a individual new todo.[check out in 'TodoForm.jsx']
+    //                 const addTodo=(todo)=>{
+    //                     //here 'todo' is a individual new todo.[check out in 'TodoForm.jsx']
 
-                        //setTodos(todo)  --> if we do this then it will automaticaly delete all todo that are present in todos array.
+    //                     //setTodos(todo)  --> if we do this then it will automaticaly delete all todo that are present in todos array.
 
-                        setTodos( (prev)=>[
-                            //this is called spread operator
-                            //create a new array with previous value + current value
-                            //[...prev,todo] --> we can't do this way, because each todo id a self object.So check out in TodoForm.jsx.
-                            ...prev,{...todo}
-                            ] 
-                        ) 
-                    }
+    //                     setTodos( (prev)=>[
+    //                         //this is called spread operator
+    //                         //create a new array with previous value + current value
+    //                         //[...prev,todo] --> we can't do this way, because each todo id a self object.So check out in TodoForm.jsx.
+    //                         ...prev,{...todo}
+    //                         ] 
+    //                     ) 
+    //                 }
 
 
-                    const updateTodo=(id,todo)=>{
-                        //here 'todo' is a individual object of new todo that is coming from todos.[check out in 'TodoItem.jsx']
+    //                 const updateTodo=(id,todo)=>{
+    //                     //here 'todo' is a individual object of new todo that is coming from todos.[check out in 'TodoItem.jsx']
 
-                        // we have to find which 'id' todo we want to edit and show it on our UI.
-                        setTodos( (prev)=>
-                                        prev.map( (prevTodo)=>prevTodo.id===id ? todo : prevTodo ) 
-                        )
-                        //          each todo in todos      comparing id of each todo [ If milla toh 'todo' dalo nahi toh 'prevTodo' rehne doo]
+    //                     // we have to find which 'id' todo we want to edit and show it on our UI.
+    //                     setTodos( (prev)=>
+    //                                     prev.map( (prevTodo)=>prevTodo.id===id ? todo : prevTodo ) 
+    //                     )
+    //                     //          each todo in todos      comparing id of each todo [ If milla toh 'todo' dalo nahi toh 'prevTodo' rehne doo]
 
-                    }
+    //                 }
 
-                    const deleteTodo=(id)=>{
-                        // original array of todos main se sirf ek id delete karke baki sare todos ko daal doo
-                        setTodos( (prev)=>
-                                        prev.filter( (prevTodo)=>prevTodo.id!==id )
-                        )
-                    }
+    //                 const deleteTodo=(id)=>{
+    //                     // original array of todos main se sirf ek id delete karke baki sare todos ko daal doo
+    //                     setTodos( (prev)=>
+    //                                     prev.filter( (prevTodo)=>prevTodo.id!==id )
+    //                     )
+    //                 }
 
-                    const toggleTodo=(id)=>{
-                        setTodos( (prev)=>
-                            prev.map( (prevTodo)=>prevTodo.id===id ? {
-                                    //Spread operator
-                                    //Pehle sarii values lelo uske badd change kardo! 
-                                    ...prevTodo, completed: !prevTodo.completed
-                                } : prevTodo
-                            ) 
-                        )
-                    }
+    //                 const toggleTodo=(id)=>{
+    //                     setTodos( (prev)=>
+    //                         prev.map( (prevTodo)=>prevTodo.id===id ? {
+    //                                 //Spread operator
+    //                                 //Pehle sarii values lelo uske badd change kardo! 
+    //                                 ...prevTodo, completed: !prevTodo.completed
+    //                             } : prevTodo
+    //                         ) 
+    //                     )
+    //                 }
 
-                //local storage part:--
-                    //Application jabb 1st time pai load hoo,toh konsa essa method hai jo query karr sakta hai localstorage se , taki sarri value mill sake.
-                    useEffect( ()=>{
-                        /*
-                        //It will give you a String but we need in json format
-                            localStorage.getItem("todos")
-                            //Returns the current value associated with the given key, or null if the given key does not exist.
-                        */
+    //             //local storage part:--
+    //                 //Application jabb 1st time pai load hoo,toh konsa essa method hai jo query karr sakta hai localstorage se , taki sarri value mill sake.
+    //                 useEffect( ()=>{
+    //                     /*
+    //                     //It will give you a String but we need in json format
+    //                         localStorage.getItem("todos")
+    //                         //Returns the current value associated with the given key, or null if the given key does not exist.
+    //                     */
 
-                        const tito=JSON.parse(localStorage.getItem("todoss"));
+    //                     const tito=JSON.parse(localStorage.getItem("todoss"));
                         
-                        //Agar todo jo ayaa hai usme kuch value hai yaa nahi
-                        if(tito && tito.length>0){
-                            setTodos(tito)
-                        }
-                    },[] )
+    //                     //Agar todo jo ayaa hai usme kuch value hai yaa nahi
+    //                     if(tito && tito.length>0){
+    //                         setTodos(tito)
+    //                     }
+    //                 },[] )
 
-                    //Set in local storage when todos are encounter.
-                    useEffect(()=>{
-                        //Sets the value of the pair identified by key to value, creating a new key/value pair if none existed for key previously.
-                        localStorage.setItem("todoss",JSON.stringify(todos))
-                    },[todos])
+    //                 //Set in local storage when todos are encounter.
+    //                 useEffect(()=>{
+    //                     //Sets the value of the pair identified by key to value, creating a new key/value pair if none existed for key previously.
+    //                     localStorage.setItem("todoss",JSON.stringify(todos))
+    //                 },[todos])
 
-                return (
-                    <Todo_provider value={{todos,addTodo,updateTodo,deleteTodo,toggleTodo}}>
-                        <div className="bg-[#172842] min-h-screen py-8">
-                            <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
-                                <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
-                                <div className="mb-4">
-                                    {/* Todo form goes here */} 
-                                    <TodoForm/>
-                                </div>
-                                <div className="flex flex-wrap gap-y-3">
-                                    {/*Loop and Add TodoItem here */}
-                                    {todos.map((todo)=>(
-                                        //keys is used here for unique value of div
-                                        <div key={todo.id} className="w-full">
-                                            <TodoItem todo={todo}></TodoItem>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </Todo_provider>
-                );
-            }
+    //             return (
+    //                 <Todo_provider value={{todos,addTodo,updateTodo,deleteTodo,toggleTodo}}>
+    //                     <div className="bg-[#172842] min-h-screen py-8">
+    //                         <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+    //                             <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+    //                             <div className="mb-4">
+    //                                 {/* Todo form goes here */} 
+    //                                 <TodoForm/>
+    //                             </div>
+    //                             <div className="flex flex-wrap gap-y-3">
+    //                                 {/*Loop and Add TodoItem here */}
+    //                                 {todos.map((todo)=>(
+    //                                     //keys is used here for unique value of div
+    //                                     <div key={todo.id} className="w-full">
+    //                                         <TodoItem todo={todo}></TodoItem>
+    //                                     </div>
+    //                                 ))}
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </Todo_provider>
+    //             );
+    //         }
 
 
 
-// // Redux Toolkit :--- 
-//     import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
-//     import Todos from "./Project/07_Redux_toolkit/Components/Todos";
-//     import { Provider } from "react-redux";
-//     import { store } from "./Project/07_Redux_toolkit/store";
+// Redux Toolkit :--- 
+    import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
+    import Todos from "./Project/07_Redux_toolkit/Components/Todos";
+    import { Provider } from "react-redux";
+    import { store } from "./Project/07_Redux_toolkit/store";
 
-//     //We use one extra thing 'store'[global variable]
-//     //here 'store' is used just like we use 'value' in context Api.
+    //You need a provider to wrapp.
+    //We use one extra thing 'store'[global variable]
+    //here 'store' is used just like we use 'value' in context Api.
 
-//         function App(){
-//             return(
-//                 <Provider store={store}>
-//                     <h1>Learn redux Toolkit</h1> 
-//                     <AddTodo/>
-//                     <Todos/>
-//                 </Provider>
-//             );
-//         }
+        function App(){
+            return(
+                <Provider store={store}>
+                    <h1>Learn redux Toolkit</h1> 
+                    <AddTodo/>
+                    <Todos/>
+                </Provider>
+            );
+        }
 
 export default App

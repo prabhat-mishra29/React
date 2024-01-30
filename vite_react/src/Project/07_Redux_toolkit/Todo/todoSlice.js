@@ -21,14 +21,14 @@ export const todoSlice=createSlice({
         //takes object of properties and function
         //In context Api we just declar functions,but in reducers we declar a function as well as we define that function.
         //when we perform functions we have to access two things "state" and "action".
-        //'state' takes the values that are present in current initialState.
+        //'state' takes the values that are present in current initialState.[like Previous value]
         //'action':- while performing functions we need some values as a parameter i.e store in 'action'.like 'text','id' etc..
         //Note:--use reference of method instead of call.
 
         addTodo:(state,action)=>{
             //methods create a todo.
             const todo={
-                id:nanoid(),
+                id: nanoid(),
                 text:action.payload,
                 //payload is it self an object.
                 //here parameter:text [stored in action]
@@ -51,10 +51,11 @@ export const todoSlice=createSlice({
         },
 
         updateTodo:(state,action)=>{
+            //Two parameters passed in 'action' , one is 'id' and second is 'text'.
             // we have to find which 'id' todo we want to edit and show it on our UI.
             state.todos.map( (todo)=>(
                 // each todo in todos      comparing id of each todo 
-                todo.id===action.payload.id ? todo.text:action.payload
+                todo.id===action.payload.id ? todo.text=action.payload.text : todo
             ) )  
         }
     }

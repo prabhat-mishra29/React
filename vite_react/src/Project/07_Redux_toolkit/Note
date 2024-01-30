@@ -17,7 +17,7 @@ The createSelector utility from the Reselect library, re-exported for ease of us
 Steps:--
     1.create 'Store' using 'configureStore()'.
     2.create 'reducers'.But in redux toolkit we can say 'reducers' as 'Slices' using 'createSlice()'.
-    3.export reducers individualy as well as collection.
+    3.export reducers and all functionality individualy.
     4.'store' needs the knowledge about 'reducers'
     5.Make a form for adding todos.
     6.list all todos.

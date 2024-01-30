@@ -7,7 +7,7 @@ import { addTodo } from "../Todo/todoSlice"
 function AddTodo() {
     //How to add values in 'store':- using "useDispatch"
 
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState('')  //Here 'input' is text.
     const dispatch = useDispatch()
 
     const addTodoHandler = (e) => {
@@ -15,7 +15,7 @@ function AddTodo() {
         //Dispatch reducers ko use karte 'store' main value daal ta hai.
         //here dispatch use 'addTodo()' method to store input
         dispatch(addTodo(input))
-        setInput('')
+        setInput('') //For next todo we clean it.
     }
 
   return (
