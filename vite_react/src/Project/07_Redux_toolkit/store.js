@@ -1,4 +1,5 @@
 //'Store' acts as a global variable.
+//Ek application main ek hi 'store' hota hai.
 //how to create 'store':--
 
 import {configureStore} from '@reduxjs/toolkit'
