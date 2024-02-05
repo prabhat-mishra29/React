@@ -11,7 +11,7 @@ import { useId } from "react";
     //["Do not call useId to generate keys in a list. Keys should be generated from your data.""]
 
 
-function InputBox( { label , amount , onAmountChange , onCurrencyChange , currenyOptions=[] , selectCurrency="" , currencyDisable=false ,  amountDisable=false,className = "",} ) {
+function InputBox( { label , amount , onAmountChange , onCurrencyChange , currenyOptions=[] , selectCurrency="" , currencyDisable=false ,  amountDisable=false,className = ""} ) {
    
     //optional
     const amountId=useId();

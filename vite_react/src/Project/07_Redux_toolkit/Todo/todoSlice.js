@@ -15,7 +15,7 @@ const initialState={
 export const todoSlice=createSlice({
     //takes object
     //Every 'Slice' has a name,intial state and reducers.
-    name:'todo',
+    name:"todo",
     initialState:initialState,
     reducers:{
         //takes object of properties and function
