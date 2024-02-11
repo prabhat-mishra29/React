@@ -8,7 +8,7 @@ const Input = React.forwardRef( function Input( {
     type = "text",
     className = "",
     ...props
-}, ref) { //Input component koo joo v usse karega ekk reference/'ref' v pass karega.[refernce forward hua hai]
+}, ref) { //Input component koo joo v usse karega ekk reference/'ref' v pass karega.Takii inputfiled uss 'ref' ko pass hoga.
     const id = useId();
 
     return (
@@ -30,6 +30,7 @@ const Input = React.forwardRef( function Input( {
              />
         </div>
     )
-})
+}
+)
 
 export default Input;

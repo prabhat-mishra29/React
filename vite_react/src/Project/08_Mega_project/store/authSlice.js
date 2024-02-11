@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //User authenticate kiya hai ki nahi.
 
 const initialState = {
-    status : false,
+    status : false, // abhi user authenticate nahi hai
     userData: null
 }
 
