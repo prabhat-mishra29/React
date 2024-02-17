@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { Provider } from 'react-redux'
-import { store } from './Project/08_Mega_project/store/store.js'
 
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
@@ -61,7 +59,7 @@ import { store } from './Project/08_Mega_project/store/store.js'
 //               // Dynamic value kese lee URL se:--
 //               // Suppose we give a path OR url http://localhost:5173/user/100 and we want show in UI as user:100 ,then how do we create route?
 //               {
-//                 path:'user/:userID', // "userId",we can use this in 'User' component.
+//                 path:'user/:userID', // "userID",we can use this in 'User' component.
 //                 element:<User/>
 //               },
 //               {
@@ -121,10 +119,81 @@ import { store } from './Project/08_Mega_project/store/store.js'
 
 
 // Mega Project:--
+import { Provider } from 'react-redux'
+import { store } from './Project/08_Mega_project/store/store.js'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './Project/08_Mega_project/pages/Home.jsx'
+import { AuthLayout, Login } from './Project/08_Mega_project/Components/index.js'
+import AddPost from "./Project/08_Mega_project/pages/AddPost.jsx";
+import Signup from './Project/08_Mega_project/pages/Signup.jsx'
+import EditPost from "./Project/08_Mega_project/pages/EditPost";
+import Post from "./Project/08_Mega_project/pages/Post";
+import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
+
+    const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/login",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Login />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/signup",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Signup />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/all-posts",
+                element: (
+                    <AuthLayout authentication>
+                        {" "}
+                        <AllPosts />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/add-post",
+                element: (
+                    <AuthLayout authentication>
+                        {" "}
+                        <AddPost />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/edit-post/:slug",
+                element: (
+                    <AuthLayout authentication>
+                        {" "}
+                        <EditPost />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/post/:slug",
+                element: <Post />,
+            },
+        ],
+    },
+    ])
+
     ReactDOM.createRoot(document.getElementById('root')).render(
       <React.StrictMode>
         <Provider store={store}>
-          <App />
+          <RouterProvider router={router}/>
         </Provider>
-      </React.StrictMode>,
+      </React.StrictMode>
     )

@@ -88,4 +88,15 @@
 
 > 2. Component based design.[Build all react components]
 
-> 3. React hook form in production
+> 3. React hook form in production.
+    -> select-button component,postcard component.
+    -> Using 'react hook form' :- Login component,Signup component .
+    -> 'AuthLayout' component is a layout or mechanisim for protecting pages or routes.[Protected container]
+
+> 4. Adding form and slug values:-
+    -> RTE[Real Time Editor]
+    -> RTE component , PostForm component
+
+> 5. Building pages:--
+    -> sign-up page,log-in page,add-post page,all-post page,Home page,Post page,Edit-post page.
+    -> Provide react-router in 'main.jsx' faile.

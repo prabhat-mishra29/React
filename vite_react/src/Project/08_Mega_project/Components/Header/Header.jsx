@@ -13,12 +13,11 @@ function Header() {
 
     //Whether authenticated or not using status:--
     //Whether active or not using status:--
-    const authStatus=useSelector((state)=>state.status)
-
-    //For 'routing' we can use 'createBrowserRouter' ,but in this project we use a different hook for routing.
+    const authStatus=useSelector((state)=>state.auth.status)
 
         const navigate=useNavigate()
         // The 'useNavigate' hook is used for programmatic navigation in React applications using React Router.
+        // Acts same as "to" attribute in <Link> or <NavLink>.
 
         const navItems = [ //Array of objects
                 {
@@ -76,10 +75,10 @@ function Header() {
                             {/* Conditional rendering */}
                             {/* agar 'authStatus' true hai toh hii display hoga nahi toh nahi hoga. */}
                             {authStatus && (
-                            <li>
-                                <LogoutBtn />
-                            </li>
-                            )}
+                                <li>
+                                    <LogoutBtn />
+                                </li>   )
+                            }
                     </ul>
                 </nav>
             </Container>
