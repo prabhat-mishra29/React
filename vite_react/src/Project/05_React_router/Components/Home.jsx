@@ -12,7 +12,7 @@ function Home() {
                         </h2>
 
                         <Link
-                            className="inline-flex text-white items-center px-6 py-3 font-medium bg-orange-700 rounded-lg hover:opacity-75"
+                            className="inline-flex text-white items-center px-6 py-3 font-medium bg-orange-700 rounded-lg hover:opacity-75 duration-200"
                             to="/"
                         >
                             <svg

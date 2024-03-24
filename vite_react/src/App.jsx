@@ -140,59 +140,59 @@
             }
 
         // Suppose we fetch an API in 'app.jsx'.. then we can put data coming from API into global variable 'UserContext' using 'setUser' method. just like we did in login component.
-*/  
+*/
 
-    // Theme switcher :----
-        // import { useEffect, useState } from "react";
-        // import Card from "./Project/06_Context_API/Theme_switcher/Components/Card";
-        // import Themebtn from "./Project/06_Context_API/Theme_switcher/Components/Themebtn";
-        // import {ThemeProvider}  from "./Project/06_Context_API/Theme_switcher/Context/Theme";
+    // // Theme switcher :----
+    //     import { useEffect, useState } from "react";
+    //     import Card from "./Project/06_Context_API/Theme_switcher/Components/Card";
+    //     import Themebtn from "./Project/06_Context_API/Theme_switcher/Components/Themebtn";
+    //     import {ThemeProvider}  from "./Project/06_Context_API/Theme_switcher/Context/Theme";
 
-        //     function App() {
+    //         function App() {
 
-        //         const [themeMode,SetThemeMode]=useState("light");  // set by-default value of themeMode is "light"
+    //             const [themeMode,SetThemeMode]=useState("light");  // set by-default value of themeMode is "light"
 
-        //         //Define methods "darkTheme" and "lightTheme" that are used in 'ThemeProvider'.
-        //         //value apne app methods main chala jayega..
-        //         const lightTheme=()=>{
-        //             SetThemeMode("light");
-        //         }
-        //         const darkTheme=()=>{
-        //             SetThemeMode("dark");
-        //         }
+    //             //Define methods "darkTheme" and "lightTheme" that are used in 'ThemeProvider'.
+    //             //value apne app methods main chala jayega..
+    //             const lightTheme=()=>{
+    //                 SetThemeMode("light");
+    //             }
+    //             const darkTheme=()=>{
+    //                 SetThemeMode("dark");
+    //             }
 
-        //         // Actual change in a theme.
-        //         useEffect(()=>{
-        //             document.querySelector('html').classList.remove("light","dark");
-        //             document.querySelector('html').classList.add(themeMode);
-        //         },[themeMode])
-
-
-        //         /*
-        //             //Very imp:--
-        //                 -> Put darkMode:"class", in 'tailwind.config.js'
-        //         */
+    //             // Actual change in a theme.
+    //             useEffect(()=>{
+    //                 document.querySelector('html').classList.remove("light","dark");
+    //                 document.querySelector('html').classList.add(themeMode);
+    //             },[themeMode])
 
 
-        //         return ( 
-        //             //Sirf ThemeProvider dene se value access nahi hoga.'value' dena hoga.
-        //         <ThemeProvider value={{themeMode,darkTheme,lightTheme}}>
-        //             <div className="flex flex-wrap min-h-screen items-center">
-        //                 <div className="w-full">
-        //                     <div className="w-full max-w-sm mx-auto flex justify-end mb-4">
-        //                         {/* Theme button */}
-        //                         <Themebtn/>
-        //                     </div>
+    //             /*
+    //                 //Very imp:--
+    //                     -> Put darkMode:"class", in 'tailwind.config.js'
+    //             */
 
-        //                     <div className="w-full max-w-sm mx-auto">
-        //                         {/* Card */}
-        //                         <Card/>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </ThemeProvider>
-        //         );
-        //     }
+
+    //             return ( 
+    //                 //Sirf ThemeProvider dene se value access nahi hoga.'value' dena hoga.
+    //             <ThemeProvider value={{themeMode,darkTheme,lightTheme}}>
+    //                 <div className="flex flex-wrap min-h-screen items-center">
+    //                     <div className="w-full">
+    //                         <div className="w-full max-w-sm mx-auto flex justify-end mb-4">
+    //                             {/* Theme button */}
+    //                             <Themebtn/>
+    //                         </div>
+
+    //                         <div className="w-full max-w-sm mx-auto">
+    //                             {/* Card */}
+    //                             <Card/>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </ThemeProvider>
+    //             );
+    //         }
 
 
     // // Todo list :----
@@ -300,25 +300,25 @@
 
 
 
-// Redux Toolkit :--- 
-    // import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
-    // import Todos from "./Project/07_Redux_toolkit/Components/Todos";
-    // import { Provider } from "react-redux";
-    // import { store } from "./Project/07_Redux_toolkit/store";
+// // Redux Toolkit :--- 
+//     import AddTodo from "./Project/07_Redux_toolkit/Components/AddTodo";
+//     import Todos from "./Project/07_Redux_toolkit/Components/Todos";
+//     import { Provider } from "react-redux";
+//     import { store } from "./Project/07_Redux_toolkit/store";
 
-    // //You need a provider to wrapp.
-    // //We use one extra thing 'store'[global variable]
-    // //here 'store' is used just like we use 'value' in context Api.
+//     //You need a provider to wrapp.
+//     //We use one extra thing 'store'[global variable]
+//     //here 'store' is used just like we use 'value' in context Api.
 
-    //     function App(){
-    //         return(
-    //             <Provider store={store}>
-    //                 <h1>Learn redux Toolkit</h1> 
-    //                 <AddTodo/>
-    //                 <Todos/>
-    //             </Provider>
-    //         );
-    //     }
+//         function App(){
+//             return(
+//                 <Provider store={store}>
+//                     <h1>Learn redux Toolkit</h1> 
+//                     <AddTodo/>
+//                     <Todos/>
+//                 </Provider>
+//             );
+//         }
 
 
 
@@ -388,7 +388,7 @@
                                 <Header></Header>
                                     {/* Jabb v kuch alag show karna hai toh 'main' se wrapp karlo */}
                                     <main>
-                                        {/* <Outlet/> */}
+                                        <Outlet/>
                                     </main>
                                 <Footer></Footer>
                             </div>

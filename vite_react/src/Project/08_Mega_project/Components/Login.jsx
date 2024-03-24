@@ -23,7 +23,8 @@ function Login() {
             const session = await authServices.logIn(data)
             if (session) {
                 //Agar session hai toh user log-in hai and user-data nikale.
-                //current user lelo
+                //userData 'getCurrentUser' se hi niklega
+                //current user lelo.
                 const userData = await authServices.getCurrentUser()
 
                 //store update kardo
@@ -68,37 +69,38 @@ function Login() {
             <div className='space-y-5'>
 
                 {/* This "Input" is our component. */}
-                <Input
-                label="Email: "
-                placeholder="Enter your email"
-                type="email"
-                {
-                    //Javascript:--
-                        //1st spread register :- takes an unique name and an object of options.
-                    ...register("email", {
-                        required: true,
-                        validate: {
-                            matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                            "Email address must be a valid address",
-                            }
-                        }  
-                    )
-                }
-                />
+                {/* When we use 'input' component in parent,automaticaly parent-'ref' passes to input-field. */}
+                    <Input
+                    label="Email: "
+                    placeholder="Enter your email"
+                    type="email"
+                    {
+                        //Javascript:--
+                            //1st spread register :- takes an unique name and an object of options.
+                        ...register("email", {
+                            required: true,
+                            validate: {
+                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                "Email address must be a valid address",
+                                }
+                            }  
+                        )
+                    }
+                    />
 
-                <Input
-                label="Password: "
-                type="password"
-                placeholder="Enter your password"
-                {
-                    //Javascript:--
-                        //1st spread register :- takes an unique name and an object of options.
-                    ...register("password", {
-                        required: true,
-                        }
-                    )
-                }
-                />
+                    <Input
+                    label="Password: "
+                    type="password"
+                    placeholder="Enter your password"
+                    {
+                        //Javascript:--
+                            //1st spread register :- takes an unique name and an object of options.
+                        ...register("password", {
+                            required: true,
+                            }
+                        )
+                    }
+                    />
                 
                 <Button
                 text="Sign in"

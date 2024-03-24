@@ -87,6 +87,12 @@
 > 1. Conditional rendering.
 
 > 2. Component based design.[Build all react components]
+        -The 'useNavigate' hook is used for programmatic navigation in React applications using React Router.
+        - It Acts same as "to" attribute in <Link> or <NavLink>.
+        - It needs a URL.
+
+        - Learn 'forward-ref' in 'input.js' and google.
+        -'input.js' gives you a input field that can be used in different places according to our use.
 
 > 3. React hook form in production.
     -> select-button component,postcard component.
@@ -100,3 +106,7 @@
 > 5. Building pages:--
     -> sign-up page,log-in page,add-post page,all-post page,Home page,Post page,Edit-post page.
     -> Provide react-router in 'main.jsx' faile.
+
+
+#Problems:-
+    >

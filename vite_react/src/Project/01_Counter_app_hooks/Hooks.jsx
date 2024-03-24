@@ -23,15 +23,16 @@ function Hooks(){
         console.log(Counter_value);  //changes in counter_value but does not change in UI
     */
 
+        Counter_value++;
+
         //Assginment part:--
-        if(Counter_value==100){
+        if(Counter_value>100){
             alert("Number exceed the range i.e over 100");
             console.log("Number exceed the range i.e over 100");
             setCounter_value(5); //default
             return;
         }
 
-        Counter_value++;
         setCounter_value(Counter_value);// jahan pai Counter_value lagg hai uss element main jake change karo
         console.log(Counter_value);
     }
@@ -41,15 +42,17 @@ function Hooks(){
         Counter_value--;
         console.log(Counter_value);  //changes in counter_value but does not change in UI
     */
+        
+        Counter_value--;
+        
         //Assginment part:--
-        if(Counter_value==0){
+        if(Counter_value<0){
             alert("Number exceed the range i.e below 0");
             console.log("Number exceed the range i.e below 0");
             setCounter_value(5); //default
             return;
         }
-        
-        Counter_value--;
+
         setCounter_value(Counter_value);// jahan pai Counter_value lagg hai uss element main jake change karo
         console.log(Counter_value);
     }

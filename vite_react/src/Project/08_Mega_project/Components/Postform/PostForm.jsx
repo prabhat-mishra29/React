@@ -1,11 +1,21 @@
-import React, { useCallback } from "react";
+//How to add a post-form(add-post).
+
+import React, { useCallback,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "../index";
-import data from "../../Appwrite/database_storage";
+import data_service from "../../Appwrite/database_storage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function PostForm({ post }) {
+
+    // 'post' props is used whenever we want to edit our post.
+    // otherwise we will not provide anything as our props in 'add-post' component.
+
+    //watch:- kissi v field ko agar continously monitor karna hai toh.
+    //setValue:-- kissi v field ka agar value set karna hai toh.
+    //control:-- kissi v form ka control lena hai toh.
+    //getValue:-- kissi v field value lena hai toh.
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
@@ -18,17 +28,21 @@ export default function PostForm({ post }) {
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
 
+    //submit hua hee agar,data pass toh hua hii hoga.
     const submit = async (data) => {
 
         //Agar post hai toh
         if (post) {
-            const file = data.image[0] ? await data.uploadFile(data.image[0]) : null;
+        //              agar image hai         toh upload karo                  nahi hai toh null hoga
+            const file = data.image[0] ? await data_service.uploadFile(data.image[0]) : null;
 
+            //upload hona ke badd delete karo.
             if (file) {
-                data.deleteFile(post.featuredImage);
+                data_service.deleteFile(post.featuredImage);
             }
 
-            const dbPost = await data.updatePost(post.$id, {
+            //update post:-
+            const dbPost = await data_service.updatePost(post.$id, {
                 ...data,
                 featuredImage: file ? file.$id : undefined,
             });
@@ -40,12 +54,12 @@ export default function PostForm({ post }) {
 
         //Agar post nahi hai toh
         else {
-            const file = await data.uploadFile(data.image[0]);
+            const file = await data_service.uploadFile(data.image[0]);
 
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await data.createPost({ ...data, userId: userData.$id });
+                const dbPost = await data_service.createPost({ ...data, userId: userData.$id });
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
@@ -54,6 +68,7 @@ export default function PostForm({ post }) {
         }
     };
 
+    //title ko watch karke slug generate karo.
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string")
             return value
@@ -65,14 +80,15 @@ export default function PostForm({ post }) {
         return "";
     }, []);
 
-    React.useEffect(() => {
+    //How to use slug-transform interview question:-
+    useEffect(() => {
         const subscription = watch((value, { name }) => {
             if (name === "title") {
                 setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
         });
 
-        return () => subscription.unsubscribe();
+        return () => subscription.unsubscribe(); //For memory-management purpose we can use it.
     }, [watch, slugTransform, setValue]);
 
     return (
@@ -84,6 +100,7 @@ export default function PostForm({ post }) {
                     className="mb-4"
                     {...register("title", { required: true })}
                 />
+
                 <Input
                     label="Slug :"
                     placeholder="Slug"
@@ -93,7 +110,9 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
+
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+
             </div>
             <div className="w-1/3 px-2">
                 <Input
@@ -103,6 +122,7 @@ export default function PostForm({ post }) {
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
+
                 {post && (
                     <div className="w-full mb-4">
                         <img
@@ -112,15 +132,17 @@ export default function PostForm({ post }) {
                         />
                     </div>
                 )}
+
                 <Select
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
+
+                <Button text={post ? "Update" : "Submit"} type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                 </Button>
+                
             </div>
         </form>
     );

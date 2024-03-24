@@ -23,7 +23,8 @@ function Signup() {
             //account create ksro
             const userData = await authServices.createAccount(data)
             if (userData) {
-                //current user lelo
+                //userData 'getCurrentUser' se hi niklega
+                //current user lelo.
                 const userData = await authServices.getCurrentUser(userData)
 
                 //store update kardo
@@ -60,7 +61,12 @@ function Signup() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
                 <form onSubmit={handleSubmit(create)}>
+                    {/* "handleSubmit" is an event and it requires a method. */}
+
                     <div className='space-y-5'>
+                        {/* This "Input" is our component. */}
+                        {/* When we use 'input' component in parent,automaticaly parent-'ref' passes to input-field. */}
+                        
                         <Input
                         label="Full Name: "
                         placeholder="Enter your full name"
@@ -106,8 +112,7 @@ function Signup() {
                         }
                         />
 
-                        <Button type="submit" className="w-full">
-                            Create Account
+                        <Button text="Create Account" type="submit" className="w-full">
                         </Button>
                     </div>
                 </form>

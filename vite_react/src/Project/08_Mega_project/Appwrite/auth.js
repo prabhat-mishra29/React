@@ -96,7 +96,7 @@ export class AuthServices{
 
     //Define a method for creating an account which can access all services that are provided by 'appwrite':--
 
-    //Hmm functionality esse design karr rahe takii jabb user ka account create ho tabb woh log-in karr paye.
+    //Hmm functionality esse design karr rahe takii jabb user ka account create ho tabb woh log-in karr paye taki wastage of memory na hoo.
 
     async createAccount({email,password,name}){
         //Takes object of three things 'email','password'and'name'.

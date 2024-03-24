@@ -1,3 +1,5 @@
+//Viewing post in a bigger format
+
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import data from "../Appwrite/database_storage";
@@ -20,7 +22,8 @@ export default function Post() {
                 if (post) setPost(post);
                 else navigate("/");
             });
-        } else navigate("/");
+        } 
+        else navigate("/");
     }, [slug, navigate]);
 
     const deletePost = () => {
@@ -55,10 +58,12 @@ export default function Post() {
                         </div>
                     )}
                 </div>
+
                 <div className="w-full mb-6">
                     <h1 className="text-2xl font-bold">{post.title}</h1>
                 </div>
                 <div className="browser-css">
+                    {/* RTE gives html content , convert it to react using 'parse' */}
                     {parse(post.content)}
                     </div>
             </Container>

@@ -6,6 +6,7 @@ function Home() {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
+        //sare posts collect kare.
         data.getPosts().then((posts) => {
             if (posts) {
                 setPosts(posts.documents)

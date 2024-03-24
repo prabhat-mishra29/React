@@ -2,7 +2,7 @@ import useTheme from "../Context/Theme";
 
 function Themebtn() {
 
-    const {themeMode,darkTheme,lightTheme}=useTheme();
+    const {darkTheme,lightTheme}=useTheme();
 
     return ( 
         <label className="relative inline-flex items-center cursor-pointer">

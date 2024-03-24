@@ -10,8 +10,8 @@ import UserContext from '../Context/UserContext';
         const{setUser}=useContext(UserContext);
 
         const handleSubmit=(e)=>{
-            e.preventDefault()   ///By default jab value submit hoti toh value idhar udhar chala jata hai.. toh usse rokne ke liye.
-            setUser({userName,password})
+            e.preventDefault()   //By default jab value submit hoti toh value idhar udhar chala jata hai.. toh usse rokne ke liye.
+            setUser({userName,password}) //Ek object gaya
         }
 
         return ( 

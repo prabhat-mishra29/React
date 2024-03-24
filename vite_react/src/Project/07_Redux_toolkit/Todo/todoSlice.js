@@ -6,9 +6,11 @@ import {createSlice,nanoid} from '@reduxjs/toolkit';
 //1st thing that we want in 'Store' is initial state.It can be anything like array,object...
 
 const initialState={
-    todos:[{
-        id:1, text:"Hello world"
-    }]
+    todos:[
+        {
+            id:1, text:"Hello world"
+        }
+    ]
 }
 
 
@@ -26,6 +28,7 @@ export const todoSlice=createSlice({
         //Note:--use reference of method instead of call.
 
         addTodo:(state,action)=>{
+            //Here in action , todo "text" is provided.
             //methods create a todo.
             const todo={
                 id: nanoid(),
@@ -43,6 +46,7 @@ export const todoSlice=createSlice({
         },
 
         removeTodo:(state,action)=>{
+            //Here in action ,  todo "id" is provided.
             //remove karne ke liye action main hamme ek id bheja gaya hi hoga.
             state.todos=state.todos.filter( (todo)=>(
                 // state main jo todo hai   [each todo]
@@ -51,7 +55,7 @@ export const todoSlice=createSlice({
         },
 
         updateTodo:(state,action)=>{
-            //Two parameters passed in 'action' , one is 'id' and second is 'text'.
+            //Two parameters passed in 'action' , one is 'id' and second is 'text' in the form of object.
             // we have to find which 'id' todo we want to edit and show it on our UI.
             state.todos.map( (todo)=>(
                 // each todo in todos      comparing id of each todo 

@@ -182,7 +182,7 @@ export class dataServices{
     databases; //variable
     bucket;  //variable [you can take 'storage' as a variable also]
 
-    //jabb v object call hoo by default constructor tabb jake database main account banaye.
+    //jabb v object call hoo by default constructor tabb jake database main account banaye taki storage wastage naa hoo.
     constructor(){
         this.client
             .setEndpoint(config.appWrite_url)
@@ -293,6 +293,7 @@ export class dataServices{
                 config.appWrite_collectionId,//Collection Id
                 [
                     Query.equal("status","active")
+                    //Here 'status' is key which is stored in 'index'.
                 ]
             );
         }
@@ -318,6 +319,7 @@ export class dataServices{
     }
 
     // file delete service:-[we have to given 'file id' to delete particular file]
+    //This 'fileID' will serve as 'featuredImage' in createPost section.
     async deleteFile(fileId){
         try{
             await this.bucket.deleteFile(

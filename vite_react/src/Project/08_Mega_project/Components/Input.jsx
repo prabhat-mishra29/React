@@ -9,6 +9,9 @@ const Input = React.forwardRef( function Input( {
     className = "",
     ...props
 }, ref) { //Input component koo joo v usse karega ekk reference/'ref' v pass karega.Takii inputfiled uss 'ref' ko pass hoga.
+
+    //Parent se 'ref' pass hoga , ussi ref ko use karke child apna 'state' ka access parent ko dega.
+    
     const id = useId();
 
     return (

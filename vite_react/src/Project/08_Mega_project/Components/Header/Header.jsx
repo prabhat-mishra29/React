@@ -18,6 +18,7 @@ function Header() {
         const navigate=useNavigate()
         // The 'useNavigate' hook is used for programmatic navigation in React applications using React Router.
         // Acts same as "to" attribute in <Link> or <NavLink>.
+        // It needs a URL
 
         const navItems = [ //Array of objects
                 {
@@ -68,6 +69,12 @@ function Header() {
                                                         //Each item ka slug pe jao
                                     className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
                                     >{item.name}</button>
+
+                                    {/*
+                                        If we use <link> instead of <button> , for navigating we use this type:-
+                                        <Link to={item.slug}>{item.name}</Link> 
+                                    */}
+                                    
                                 </li>
                             ) : null
                             )}

@@ -47,7 +47,7 @@ import './index.css'
 //                 // http://localhost:5173/  ->gives home page as default page.
 //               },
 //               {
-//                 path:'about',
+//                 path:'about/',
 //                 element:<About/>,
 //                 // http://localhost:5173/about  ->gives about page.
 //               },
@@ -143,7 +143,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 path: "/login",
                 element: (
                     <AuthLayout authentication={false}>
-                        <Login />
+                        <Login/>
                     </AuthLayout>
                 ),
             },
@@ -151,7 +151,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 path: "/signup",
                 element: (
                     <AuthLayout authentication={false}>
-                        <Signup />
+                        <Signup/>
                     </AuthLayout>
                 ),
             },

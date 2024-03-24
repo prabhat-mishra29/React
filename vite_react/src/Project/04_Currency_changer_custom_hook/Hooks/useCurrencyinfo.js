@@ -28,7 +28,8 @@
         const [data,setData]=useState({}); //default is empty object.
 
         useEffect(()=>{
-            fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
+            //https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json
+            fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`)
                 .then( (Response)=> //1st then convert string into Json and no need to return anything just convert. 
                         ( Response.json() ) 
                             ).then( (Response)=>//2nd then hold the data and no need to return anything just hold.

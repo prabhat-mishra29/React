@@ -67,6 +67,7 @@ function Password() {
         // useEffect(<function>, <dependency>)
         useEffect(()=>{password_generator()},[length,numberAllowed,characterAllowed,password_generator]);
             //means:- length ko cheda to passwor_generator ko call karo , numberAllowed ko cheda to passwor_generator ko call karo , charAllowed ko cheda to passwor_generator ko call karo , ya phir khali passwor_generator ko call karo!
+            //means:- Kissi v dependecy main change hua toh component ko phir se mount or reload karo.
 
     /*
         //Note:--
