@@ -8,6 +8,7 @@ function PostCard({$id, title, featuredImage}) {
     // Appwrite takes '$id' as a prop.so we use this type of convention.
     
   return (
+    // by-default shows 1/4 size of the postcard.when we click it moves to large form.
     <Link to={`/post/${$id}`}>
         <div className='w-full bg-gray-100 rounded-xl p-4'>
             <div className='w-full justify-center mb-4'>

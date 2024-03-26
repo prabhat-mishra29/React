@@ -47,7 +47,7 @@ import './index.css'
 //                 // http://localhost:5173/  ->gives home page as default page.
 //               },
 //               {
-//                 path:'about/',
+//                 path:'about',
 //                 element:<About/>,
 //                 // http://localhost:5173/about  ->gives about page.
 //               },
@@ -136,11 +136,11 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
         element: <App />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <Home />,
             },
             {
-                path: "/login",
+                path: "login",
                 element: (
                     <AuthLayout authentication={false}>
                         <Login/>
@@ -148,7 +148,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 ),
             },
             {
-                path: "/signup",
+                path: "signup",
                 element: (
                     <AuthLayout authentication={false}>
                         <Signup/>
@@ -156,7 +156,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 ),
             },
             {
-                path: "/all-posts",
+                path: "all-posts",
                 element: (
                     <AuthLayout authentication>
                         {" "}
@@ -165,7 +165,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 ),
             },
             {
-                path: "/add-post",
+                path: "add-post",
                 element: (
                     <AuthLayout authentication>
                         {" "}
@@ -174,7 +174,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 ),
             },
             {
-                path: "/edit-post/:slug",
+                path: "edit-post/:slug",
                 element: (
                     <AuthLayout authentication>
                         {" "}
@@ -183,7 +183,7 @@ import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
                 ),
             },
             {
-                path: "/post/:slug",
+                path: "post/:slug",
                 element: <Post />,
             },
         ],

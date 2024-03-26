@@ -19,13 +19,16 @@ export default function Protected({children, authentication = true}) {
         //It will decide where do you want me to go? [login or homepage or etc]
         //and agar kuch change hua toh recheck karun ya na karun? 
 
-         //  true && false !== true   => true
+        //Agar 'logout'button pai click hua toh authStatus false ho jayega. and directly login page ko forward karr dega.
+        //  true && false !== true   => true
         if(authentication && authStatus !== authentication){
+            // move to log-in page.
             navigate("/login")
         } 
         
         // false && true !== true => false
         else if(!authentication && authStatus !== authentication){
+            // Move to home-page.
             navigate("/")
         }
 

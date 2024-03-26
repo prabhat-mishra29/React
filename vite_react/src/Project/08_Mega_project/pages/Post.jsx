@@ -14,8 +14,10 @@ export default function Post() {
 
     const userData = useSelector((state) => state.auth.userData);
 
+    //Checks both post and userData is present or not?
     const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+    //When component mounts , it checks whether slug is present or not?
     useEffect(() => {
         if (slug) {
             data.getPost(slug).then((post) => {
@@ -26,6 +28,7 @@ export default function Post() {
         else navigate("/");
     }, [slug, navigate]);
 
+    //It is for delete a post.
     const deletePost = () => {
         data.deletePost(post.$id).then((status) => {
             if (status) {
@@ -47,14 +50,12 @@ export default function Post() {
 
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
+
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
-                                </Button>
+                                <Button bgColor="bg-green-500" className="mr-3" text="Edit"/>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
-                            </Button>
+                            
+                            <Button bgColor="bg-red-500" onClick={deletePost} text="Delete"/>
                         </div>
                     )}
                 </div>

@@ -225,7 +225,7 @@ export class dataServices{
             );
         }
         catch(error){
-            throw error;
+            console.log("Create post error",error);
         }
     }
 
@@ -313,7 +313,7 @@ export class dataServices{
             );
         }
         catch(error){
-            console.log("Appwrite service :: deletePost :: error",error);
+            console.log("Appwrite service :: uploadPost :: error",error);
             return false;
         }
     }

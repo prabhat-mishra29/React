@@ -3,7 +3,7 @@
 import React, { useCallback,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "../index";
-import data_service from "../../Appwrite/database_storage";
+import data from "../../Appwrite/database_storage";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -29,21 +29,21 @@ export default function PostForm({ post }) {
     const userData = useSelector((state) => state.auth.userData);
 
     //submit hua hee agar,data pass toh hua hii hoga.
-    const submit = async (data) => {
+    const submit = async (Data) => {
 
         //Agar post hai toh
         if (post) {
         //              agar image hai         toh upload karo                  nahi hai toh null hoga
-            const file = data.image[0] ? await data_service.uploadFile(data.image[0]) : null;
+            const file = Data.image[0] ? await data.uploadFile(Data.image[0]) : null;
 
             //upload hona ke badd delete karo.
             if (file) {
-                data_service.deleteFile(post.featuredImage);
+                data.deleteFile(post.featuredImage);
             }
 
             //update post:-
-            const dbPost = await data_service.updatePost(post.$id, {
-                ...data,
+            const dbPost = await data.updatePost(post.$id, {
+                ...Data,
                 featuredImage: file ? file.$id : undefined,
             });
 
@@ -54,14 +54,15 @@ export default function PostForm({ post }) {
 
         //Agar post nahi hai toh
         else {
-            const file = await data_service.uploadFile(data.image[0]);
+            const file = await data.uploadFile(Data.image[0]);
 
             if (file) {
                 const fileId = file.$id;
-                data.featuredImage = fileId;
-                const dbPost = await data_service.createPost({ ...data, userId: userData.$id });
+                Data.featuredImage = fileId;
+                const dbPost = await data.createPost({ ...Data, userId: userData.$id });
 
                 if (dbPost) {
+                    //Navigate to bigger image where you can edit and delete a post
                     navigate(`/post/${dbPost.$id}`);
                 }
             }
@@ -123,15 +124,16 @@ export default function PostForm({ post }) {
                     {...register("image", { required: !post })}
                 />
 
-                {post && (
-                    <div className="w-full mb-4">
-                        <img
-                            src={data.getFilePreview(post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-lg"
-                        />
-                    </div>
-                )}
+                {/* It happens when we edit a post:- */}
+                    {post && (
+                        <div className="w-full mb-4">
+                            <img
+                                src={data.getFilePreview(post.featuredImage)}
+                                alt={post.title}
+                                className="rounded-lg"
+                            />
+                        </div>
+                    )}
 
                 <Select
                     options={["active", "inactive"]}
@@ -140,7 +142,7 @@ export default function PostForm({ post }) {
                     {...register("status", { required: true })}
                 />
 
-                <Button text={post ? "Update" : "Submit"} type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button text={post ? "Update" : "Submit"} type="submit" bgColor={post ? "bg-green-500" : "bg-violet-700"} className="w-full">
                 </Button>
                 
             </div>

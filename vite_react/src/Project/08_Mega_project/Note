@@ -98,6 +98,7 @@
     -> select-button component,postcard component.
     -> Using 'react hook form' :- Login component,Signup component .
     -> 'AuthLayout' component is a layout or mechanisim for protecting pages or routes.[Protected container]
+        -It chooses where to go , while clicking logout button it will move you to login page or normally it will move to home page.
 
 > 4. Adding form and slug values:-
     -> RTE[Real Time Editor]
@@ -108,5 +109,6 @@
     -> Provide react-router in 'main.jsx' faile.
 
 
-#Problems:-
-    >
+# When ever you want watch this mega project always prefers output website side-by-side to get actual meaning of every component.
+
+# Deployment of webiste to production:-watch video number 28 of chai aur react.
