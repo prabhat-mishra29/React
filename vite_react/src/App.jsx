@@ -322,79 +322,119 @@
 
 
 
-// Mega project :--
-    import { useEffect, useState } from "react";
-    import config from "./Project/08_Mega_project/conf/config";
-    import {useDispatch} from 'react-redux';
-    import authServices from "./Project/08_Mega_project/Appwrite/auth";
-    import { login,logout } from "./Project/08_Mega_project/store/authSlice";
-    import { Header,Footer } from "./Project/08_Mega_project/Components";
-    import {Outlet} from 'react-router-dom'
+// // Mega project :--
+//     import { useEffect, useState } from "react";
+//     import config from "./Project/08_Mega_project/conf/config";
+//     import {useDispatch} from 'react-redux';
+//     import authServices from "./Project/08_Mega_project/Appwrite/auth";
+//     import { login,logout } from "./Project/08_Mega_project/store/authSlice";
+//     import { Header,Footer } from "./Project/08_Mega_project/Components";
+//     import {Outlet} from 'react-router-dom'
     
-        function App(){
+//         function App(){
 
-        /*
-            //How to access environment variable in 'create react app' platform.
-            console.log(process.env.REACT_APP_APPWRITE_URL);
+//         /*
+//             //How to access environment variable in 'create react app' platform.
+//             console.log(process.env.REACT_APP_APPWRITE_URL);
 
-            -> 1st way:-
-                //How to access environment variable in 'Vite' platform.
-                console.log(import.meta.env.VITE_APPWRITE_URL); 
+//             -> 1st way:-
+//                 //How to access environment variable in 'Vite' platform.
+//                 console.log(import.meta.env.VITE_APPWRITE_URL); 
 
-            -> 2nd way:-
-                //How to access environment variable in 'Vite' platform.[using 'config.js' file]
-                console.log(config.appWrite_url);
-        */
+//             -> 2nd way:-
+//                 //How to access environment variable in 'Vite' platform.[using 'config.js' file]
+//                 console.log(config.appWrite_url);
+//         */
 
 
-    //Jese hii application load hoo pucho authServices see ki user login hai ya nahi hai.Agar hai toh kuch dikhao agar nahi toh loading screen dikhao..
+//     //Jese hii application load hoo pucho authServices see ki user login hai ya nahi hai.Agar hai toh kuch dikhao agar nahi toh loading screen dikhao..
 
-        //1st we will create a loading state.Iske help se hmm condition rendering karr sakte hain.
-            const[loading,setLoading]=useState(true);
-            //By-default 'true' means , at 1st kuch nahi hoo raha hai toh loading screen show karega.
+//         //1st we will create a loading state.Iske help se hmm condition rendering karr sakte hain.
+//             const[loading,setLoading]=useState(true);
+//             //By-default 'true' means , at 1st kuch nahi hoo raha hai toh loading screen show karega.
 
-            const dispatch=useDispatch();
+//             const dispatch=useDispatch();
 
-            //Jese hii application load hoo "authServices" ko pucho currently user kon hai..
-            useEffect(() => {
-                authServices.getCurrentUser()
-                    .then((userData) => {
-                        //agar data hai toh dispatch karoo..
-                            if (userData) {
-                                dispatch(login({userData}))
-                                            // " Object "
-                            } else {
-                                dispatch(logout())
-                                //Agar data nahi mila toh state hi change karlo.
-                            }
-                            //Note:- State hamesha change hoga.. 
-                    })
-                    .finally( () => setLoading(false) ) //loading ka kaam khatam hoo chuka hai.
-                }, []);
+//             //Jese hii application load hoo "authServices" ko pucho currently user kon hai..
+//             useEffect(() => {
+//                 authServices.getCurrentUser()
+//                     .then((userData) => {
+//                         //agar data hai toh dispatch karoo..
+//                             if (userData) {
+//                                 dispatch(login({userData}))
+//                                             // " Object "
+//                             } else {
+//                                 dispatch(logout())
+//                                 //Agar data nahi mila toh state hi change karlo.
+//                             }
+//                             //Note:- State hamesha change hoga.. 
+//                     })
+//                     .finally( () => setLoading(false) ) //loading ka kaam khatam hoo chuka hai.
+//                 }, []);
 
             
-            //Conditional rendering:---
-                if(loading){
-                    //Loading icon
-                    return(
-                        <>
-                        </>
-                    );
-                }
-                else{
-                    return(
-                        <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
-                            <div className='w-full block'>
-                                <Header></Header>
-                                    {/* Jabb v kuch alag show karna hai toh 'main' se wrapp karlo */}
-                                    <main>
-                                        <Outlet/>
-                                    </main>
-                                <Footer></Footer>
-                            </div>
-                        </div>
-                    );
-                }
-        }
+//             //Conditional rendering:---
+//                 if(loading){
+//                     //Loading icon
+//                     return(
+//                         <>
+//                         </>
+//                     );
+//                 }
+//                 else{
+//                     return(
+//                         <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+//                             <div className='w-full block'>
+//                                 <Header></Header>
+//                                     {/* Jabb v kuch alag show karna hai toh 'main' se wrapp karlo */}
+//                                     <main>
+//                                         <Outlet/>
+//                                     </main>
+//                                 <Footer></Footer>
+//                             </div>
+//                         </div>
+//                     );
+//                 }
+//         }
+
+
+
+//Weather App:-
+    import { useEffect, useState } from "react";
+    import Header from "./Project/09_weather_app/components/Header";
+    import {Outlet} from 'react-router-dom'
+    import { useNavigate } from "react-router-dom";
+    
+    // const [loader,setLoader]=useState(true);
+    // const [session,setSession]=useState({});
+    
+    // useEffect(() => {
+    //     const localCoordinates = JSON.parse( sessionStorage.getItem("user-coordinates") );
+
+    //     if (localCoordinates) {
+    //       setSession(localCoordinates);
+    //     } 
+    // }, []);
+
+
+    function App() {
+        const navigate=useNavigate();
+
+        useEffect(()=>{
+            navigate("/");
+        },[]);
+
+        return(
+            <div className="m-0 p-0 font-['Merriweather Sans', sans-serif] box-border max-w-[100vw] min-h-[100vh] text-[#F9F7F7] bg-cover bg-no-repeat bg-[url('https://www.noaa.gov/sites/default/files/styles/landscape_width_1275/public/legacy/image/2019/Jun/PHOTO-dark%20and%20stormy%20cloudscape-istock-1125x534-Landscape.jpg')]">
+                <h1 className="py-8 text-center text-4xl font-[500]">WEATHER APP</h1>
+
+                <Header/>
+                <main>
+                    <Outlet/>
+                </main>
+
+            </div>
+        );
+    }
 
 export default App

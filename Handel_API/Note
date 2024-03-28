@@ -1,0 +1,10 @@
+# Points:-
+    >How to handel API in production grade?
+    >Black box API:-API that can not be controlled by us.Just it gives us data that we want.
+    >We use "modules" in package.json , not common js.
+        
+        Backend:-
+
+
+        Frontend:-
+            
