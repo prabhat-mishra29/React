@@ -11,6 +11,19 @@ function YourWeather() {
 
     const API_key="d1845658f92b31c64bd94f06f7188c9c";
 
+    //Check sessionstorage has data or not?
+        // const [loader,setLoader]=useState(true);
+        // const [session,setSession]=useState({});
+        
+        // useEffect(() => {
+        //     const localCoordinates = JSON.parse( sessionStorage.getItem("user-coordinates") );
+
+        //     if (localCoordinates) {
+        //       setSession(localCoordinates);
+        //     } 
+        // }, []);
+
+
     const add=()=>{
         if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);

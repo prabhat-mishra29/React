@@ -404,17 +404,6 @@
     import Header from "./Project/09_weather_app/components/Header";
     import {Outlet} from 'react-router-dom'
     import { useNavigate } from "react-router-dom";
-    
-    // const [loader,setLoader]=useState(true);
-    // const [session,setSession]=useState({});
-    
-    // useEffect(() => {
-    //     const localCoordinates = JSON.parse( sessionStorage.getItem("user-coordinates") );
-
-    //     if (localCoordinates) {
-    //       setSession(localCoordinates);
-    //     } 
-    // }, []);
 
 
     function App() {
