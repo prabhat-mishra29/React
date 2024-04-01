@@ -73,13 +73,13 @@ function SearchWeather() {
                 </form>
 
                 {
-                    data.cod==404 || data.cod==429 &&(
+                    data.cod==404 &&(
                         <Error/>
                     ) 
                 }
 
                 {
-                    Object.entries(data).length!=0 && data.cod!=404 && data.cod!=429 &&(
+                    Object.entries(data).length!=0 && data.cod!=404 &&(
                         <MainBox weatherInfo={data}/>
                     )
                 }
