@@ -117,94 +117,11 @@ import './index.css'
 //         )
 
 
-
-// // Mega Project:--
-// import { Provider } from 'react-redux'
-// import { store } from './Project/08_Mega_project/store/store.js'
-// import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-// import Home from './Project/08_Mega_project/pages/Home.jsx'
-// import { AuthLayout, Login } from './Project/08_Mega_project/Components/index.js'
-// import AddPost from "./Project/08_Mega_project/pages/AddPost.jsx";
-// import Signup from './Project/08_Mega_project/pages/Signup.jsx'
-// import EditPost from "./Project/08_Mega_project/pages/EditPost";
-// import Post from "./Project/08_Mega_project/pages/Post";
-// import AllPosts from "./Project/08_Mega_project/pages/AllPosts";
-
-//     const router = createBrowserRouter([
-//       {
-//         path: "/",
-//         element: <App />,
-//         children: [
-//             {
-//                 path: "",
-//                 element: <Home />,
-//             },
-//             {
-//                 path: "login",
-//                 element: (
-//                     <AuthLayout authentication={false}>
-//                         <Login/>
-//                     </AuthLayout>
-//                 ),
-//             },
-//             {
-//                 path: "signup",
-//                 element: (
-//                     <AuthLayout authentication={false}>
-//                         <Signup/>
-//                     </AuthLayout>
-//                 ),
-//             },
-//             {
-//                 path: "all-posts",
-//                 element: (
-//                     <AuthLayout authentication>
-//                         {" "}
-//                         <AllPosts />
-//                     </AuthLayout>
-//                 ),
-//             },
-//             {
-//                 path: "add-post",
-//                 element: (
-//                     <AuthLayout authentication>
-//                         {" "}
-//                         <AddPost />
-//                     </AuthLayout>
-//                 ),
-//             },
-//             {
-//                 path: "edit-post/:slug",
-//                 element: (
-//                     <AuthLayout authentication>
-//                         {" "}
-//                         <EditPost />
-//                     </AuthLayout>
-//                 ),
-//             },
-//             {
-//                 path: "post/:slug",
-//                 element: <Post />,
-//             },
-//         ],
-//     },
-//     ])
-
-//     ReactDOM.createRoot(document.getElementById('root')).render(
-//       <React.StrictMode>
-//         <Provider store={store}>
-//           <RouterProvider router={router}/>
-//         </Provider>
-//       </React.StrictMode>
-//     )
-
-
-
 //Weather app:-
     import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-    import Home from './Project/09_weather_app/components/Home.jsx'
-    import SearchWeather from './Project/09_weather_app/components/SearchWeather.jsx'
-    import YourWeather from './Project/09_weather_app/components/YourWeather.jsx'
+    import Home from './Project/08_weather_app/components/Home.jsx'
+    import SearchWeather from './Project/08_weather_app/components/SearchWeather.jsx'
+    import YourWeather from './Project/08_weather_app/components/YourWeather.jsx'
 
         const router = createBrowserRouter([
             {
