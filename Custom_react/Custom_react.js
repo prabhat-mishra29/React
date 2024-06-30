@@ -2,14 +2,20 @@
 //let parent <> -> childs div and a and p
 //Watch video-04
 
-const reactElement={
-    type:'a',
-    props:{
-        href:'https://google.com',
-        target:'_blank'
+const reactElement=[
+    {
+        type:'a',
+        props:{
+            href:'https://google.com',
+            target:'_blank'
+        },
+        children:'Click me to visit google',
     },
-    children:'Click me to visit google',
-}
+    {
+        type:'h1',
+        children:'Click me to visit google',
+    }
+]
 
 function customRender(reactElement/*kya_karna_hai*/,container/*kahan*/){
     //how to inject reactElement in container element
@@ -25,6 +31,7 @@ function customRender(reactElement/*kya_karna_hai*/,container/*kahan*/){
 */
     //better way:--
     for(const prop in reactElement.props){
+        if (prop === 'children') continue;
         domElement.setAttribute(/*key*/prop,reactElement.props[prop]);
     }
 
@@ -34,6 +41,9 @@ function customRender(reactElement/*kya_karna_hai*/,container/*kahan*/){
 const mainContainer=document.getElementById("root");
  
 //method to render element in root
-customRender(reactElement,mainContainer);
+for(let i in reactElement){
+    customRender(reactElement[i],mainContainer);
+}
+
 
 //jabb v element pass hoga hamare custom render main it should follow a syntax i.e having type.props,children(in "reactElement")
